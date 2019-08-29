@@ -35,7 +35,7 @@
     "prettier-eslint": "^8.8.2"
   },
   "dependencies": {
-    "geo-queries": "^0.0.5",
+    "geo-queries": "^0.0.6",
     "geolib": "^2.0.24"
   },
   "keywords": [
