@@ -1,5 +1,5 @@
 import Geolib from 'geolib';
-import { GeoQuery, GeoRegion, QueryBuilder } from 'geo-queries';
+import { GeoQuery, GeoRegion, QueryBuilderInstance } from 'geo-queries';
 
 export function findNearby(objects, center, radius, sortAscending = false) {
   const geoQuery = new GeoQuery(center, radius);
@@ -15,7 +15,7 @@ export function findInBox(objects, box, sortAscending = false) {
   const geoRegion = new GeoRegion();
   geoRegion.setGeoBox(box);
   const filteredObjects = objects.filtered(
-    QueryBuilder.forInBox(geoRegion.getGeoBox())
+    QueryBuilderInstance.forInBox(geoRegion.getGeoBox())
   );
 
   if (sortAscending) {

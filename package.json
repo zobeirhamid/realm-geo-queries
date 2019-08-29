@@ -1,6 +1,6 @@
 {
   "name": "realm-geo-queries",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Realm Geo Queries",
   "main": "index.js",
   "scripts": {
