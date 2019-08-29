@@ -1,6 +1,6 @@
 {
   "name": "realm-geo-queries",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Realm Geo Queries",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,8 @@
     "url": "git@github.com:zobeirhamid/realm-geo-queries.git"
   },
   "peerDependencies": {
-    "geolib": "*",
-    "geo-queries": "*"
+    "geo-queries": "*",
+    "geolib": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -35,8 +35,8 @@
     "prettier-eslint": "^8.8.2"
   },
   "dependencies": {
-    "geolib": "^2.0.24",
-    "geo-queries": "^0.0.1"
+    "geo-queries": "^0.0.5",
+    "geolib": "^2.0.24"
   },
   "keywords": [
     "realm",

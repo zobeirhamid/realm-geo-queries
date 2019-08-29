@@ -1,13 +1,25 @@
-import Geolib from "geolib";
-import { getQueryForInBox } from "geo-queries";
+import Geolib from 'geolib';
+import { GeoQuery, GeoRegion, QueryBuilder } from 'geo-queries';
 
 export function findNearby(objects, center, radius, sortAscending = false) {
-  const filteredObjects = objects.filtered(
-    getQueryForInBox(center, radius, "latitude", "longitude")
-  );
+  const geoQuery = new GeoQuery(center, radius);
+  const filteredObjects = objects.filtered(geoQuery.getInBox());
 
   if (sortAscending) {
     return sortByDistance(filteredObjects, center);
+  }
+  return filteredObjects;
+}
+
+export function findInBox(objects, box, sortAscending = false) {
+  const geoRegion = new GeoRegion();
+  geoRegion.setGeoBox(box);
+  const filteredObjects = objects.filtered(
+    QueryBuilder.forInBox(geoRegion.getGeoBox())
+  );
+
+  if (sortAscending) {
+    return sortByDistance(filteredObjects, geoRegion.getCenter());
   }
   return filteredObjects;
 }
@@ -23,5 +35,6 @@ export function sortByDistance(objects, coordinate) {
 
 export default {
   findNearby,
+  findInBox,
   sortByDistance
 };
